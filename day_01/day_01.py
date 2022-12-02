@@ -19,7 +19,7 @@ def get_count(lines: str) -> dict:
     result_dict = {}
 
     elf = 1
-    for i, line in enumerate(lines, start=1):
+    for line in lines:
         stripped_line = line.strip()
         if stripped_line:
             result_dict[elf] = result_dict.get(elf, 0) + int(stripped_line)
