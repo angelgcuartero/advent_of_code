@@ -6,8 +6,9 @@
 from collections import Counter
 import os
 
-file_path = file_path = input_file = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "day_01_input.txt")
+file_path = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "day_01_input.txt")
 
 
 def read_file(input_file: str) -> str:
@@ -30,16 +31,26 @@ def get_count(lines: str) -> dict:
     return result_dict
 
 
+def part_1(data: dict) -> list:
+    c = Counter(data)
+    return c.most_common(1)[0][0], c.most_common(1)[0][1]
+
+
+def part_2(data: dict) -> int:
+    c = Counter(data)
+    top_3 = c.most_common(3)
+    return sum([x[1] for x in top_3])
+
+
 def main() -> int:
     lines = read_file(file_path)
-    result = get_count(lines)
-    c = Counter(result)
-    elf = c.most_common(1)[0][0]
-    calories = c.most_common(1)[0][1]
-    print(
-        f"The elf with the most calories is number {elf}, carrying {calories}")
-    top_3 = c.most_common(3)
-    print(f"The top 3 elves' calories sum up: {sum([x[1] for x in top_3])}")
+    data = get_count(lines)
+
+    # Part 1
+    print("Part 1: The elf %s carries the most calories: %d" % part_1(data))
+
+    # Part 2
+    print(f"Part 2: The total calories in the top 3 elves is {part_2(data)}")
     return 0
 
 

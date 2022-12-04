@@ -5,8 +5,9 @@
 
 import os
 
-file_path = file_path = input_file = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "day_02_input.txt")
+file_path = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "day_02_input.txt")
 
 
 def read_file(input_file: str) -> str:
@@ -77,22 +78,29 @@ def get_points(ABC: str, XYZ: str) -> int:
     return points_for_XYZ + points_for_winner
 
 
-def main() -> int:
-    lines = read_file(file_path)
+def part_1(lines: list) -> int:
     points = []
     for line in lines:
         ABC, XYZ = line.split()
         points.append(get_points(ABC, XYZ))
-    print(f"First strategy: {sum(points)}")
+    return points
 
-    lines = read_file(file_path)
+
+def part_2(lines: list) -> int:
     points = []
     for line in lines:
         ABC, goal = line.split()
         XYZ = resolve_endgame(ABC, goal)
         points.append(get_points(ABC, XYZ))
-    print(f"Endgame: {sum(points)}")
+    return points
 
+
+def main() -> int:
+    lines = read_file(file_path)
+    # Part 1
+    print(f"First strategy: {sum(part_1(lines))}")
+    # Part 2
+    print(f"Endgame: {sum(part_2(lines))}")
     return 0
 
 
