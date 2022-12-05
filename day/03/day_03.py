@@ -4,6 +4,7 @@
 # Day 2
 
 import os
+import string
 
 file_path = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
@@ -17,9 +18,12 @@ def read_file(input_file: str) -> str:
 
 
 def get_priority(c: str) -> int:
-    if 'a' <= c <= 'z':
+    # Lowercase item types a through z have priorities 1 through 26.
+    # Uppercase item types A through Z have priorities 27 through 52.
+
+    if c in string.ascii_lowercase:
         return ord(c) - ord('a') + 1
-    elif 'A' <= c <= 'Z':
+    elif c in string.ascii_uppercase:
         return ord(c) - ord('A') + 27
     else:
         return 0
