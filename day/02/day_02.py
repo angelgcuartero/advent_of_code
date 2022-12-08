@@ -68,9 +68,9 @@ def resolve_endgame(abc: str, xyz: str) -> str:
 
 def get_points(ABC: str, XYZ: str) -> int:
     """Return the number of points this solution earned
-        (1 for Rock, 2 for Paper, and 3 for Scissors) 
-    plus the score for the outcome of the round 
-        (0 if you lost, 3 if the round was a draw, and 6 if you won).
+    (1 for Rock, 2 for Paper, and 3 for Scissors)
+    plus the score for the outcome of the round
+    (0 if you lost, 3 if the round was a draw, and 6 if you won).
     """
     points_for_XYZ = ord(XYZ) - 87
     winner = resolve_winner(ABC, XYZ)
