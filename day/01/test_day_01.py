@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
 # Advent of Code 2022
-# Day 1 - Test Inventory
+# Day 1 - Test Calorie Counting
 
-from collections import Counter
 import os
 import pytest
 import day_01 as d1
@@ -28,6 +27,8 @@ def test_part_1_get_calories_count():
     assert count == 24000
 
 # Part 2
+
+
 def test_part_2_top_3_sum_calories():
     lines = d1.read_file(file_path)
     data = d1.get_count(lines)

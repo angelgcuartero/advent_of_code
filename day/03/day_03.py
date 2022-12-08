@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Advent of Code 2022
-# Day 2
+# Day 3 - Rucksack Reorganization
 
 import os
 import string

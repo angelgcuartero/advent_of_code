@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Advent of Code 2022
-# Day 1
+# Day 1 - Calorie Counting
 
 from collections import Counter
 import os
