@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Advent of Code 2022
-# Day 2 - Test Rock Paper Scissors
+# Day 3 - Test Rucksack Reorganization
 
 import os
 import pytest

@@ -1,4 +1,4 @@
-# Day 3: Rucksack Reorganization ---
+# Day 3: Rucksack Reorganization
 
 ## Part 1
 
