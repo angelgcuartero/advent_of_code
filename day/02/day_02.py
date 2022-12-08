@@ -97,10 +97,10 @@ def part_2(lines: list) -> int:
 
 def main() -> int:
     lines = read_file(file_path)
-    # Part 1
-    print(f"First strategy: {sum(part_1(lines))}")
-    # Part 2
-    print(f"Endgame: {sum(part_2(lines))}")
+    # Part One
+    print(f"Part One: {sum(part_1(lines))}")
+    # Part Two
+    print(f"Part Two: {sum(part_2(lines))}")
     return 0
 
 
