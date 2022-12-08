@@ -46,11 +46,11 @@ def main() -> int:
     lines = read_file(file_path)
     data = get_count(lines)
 
-    # Part 1
-    print("Part 1: The elf %s carries the most calories: %d" % part_1(data))
+    # Part One
+    print("Part One: The elf %s carries the most calories: %d" % part_1(data))
 
-    # Part 2
-    print(f"Part 2: The total calories in the top 3 elves is {part_2(data)}")
+    # Part Two
+    print(f"Part Two: The total calories in the top 3 elves is {part_2(data)}")
     return 0
 
 

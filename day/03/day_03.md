@@ -1,6 +1,6 @@
 # Day 3: Rucksack Reorganization
 
-## Part 1
+## Part One
 
 One Elf has the important job of loading all of the rucksacks with supplies for the jungle journey. Unfortunately, that Elf didn't quite follow the packing instructions, and so a few items now need to be rearranged.
 
@@ -43,7 +43,7 @@ Find the item type that appears in both compartments of each rucksack. What is t
 
 To begin, get your puzzle input.
 
-## Part 2
+## Part Two
 
 As you finish identifying the misplaced items, the Elves come to you with another issue.
 

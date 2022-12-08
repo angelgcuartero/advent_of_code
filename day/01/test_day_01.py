@@ -12,7 +12,7 @@ file_path = os.path.join(
     "test_day_01_input.txt")
 
 
-# Part 1
+# Part One
 def test_count():
     lines = d1.read_file(file_path)
     assert len(lines) == 14
@@ -26,7 +26,7 @@ def test_part_1_get_calories_count():
     assert elf == 4
     assert count == 24000
 
-# Part 2
+# Part Two
 
 
 def test_part_2_top_3_sum_calories():

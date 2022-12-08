@@ -81,10 +81,10 @@ def part_2(lines: list) -> int:
 
 def main() -> int:
     lines = read_file(file_path)
-    # Part 1
-    print(f"Part 1: {part_1(lines)}")
-    # Part 2
-    print(f"Part 2: {part_2(lines)}")
+    # Part One
+    print(f"Part One: {part_1(lines)}")
+    # Part Two
+    print(f"Part Two: {part_2(lines)}")
     return 0
 
 
