@@ -23,17 +23,14 @@ def test_part1():
 
     lines = d7.read_file(file_path)
     result = d7.part_1(lines)
-    assert 'a' in result
-    assert 'e' in result
-    assert result['a'] == 94853
-    assert result['e'] == 584
+    assert result == 95437
 
 
-# def test_part2():
-#     """
-#     """
+def test_part2():
+    """
+    """
 
-#     assert True
+    assert True
 
 
 if __name__ == "__main__":
