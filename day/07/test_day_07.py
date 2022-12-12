@@ -28,10 +28,21 @@ def test_part1():
 
 def test_part2():
     """
+    Delete directory e, which would increase unused space by 584.
+    Delete directory a, which would increase unused space by 94853.
+    Delete directory d, which would increase unused space by 24933642.
+    Delete directory /, which would increase unused space by 48381165.    
+    
+    Directories e and a are both too small; deleting them would not 
+    free up enough space. However, directories d and / are both big 
+    enough! Between these, choose the smallest: d, increasing 
+    unused space by 24933642.
     """
-
-    assert True
+    lines = d7.read_file(file_path)
+    result = d7.part_2(lines)
+    # Directory d with 24933642
+    assert result == 24933642
 
 
 if __name__ == "__main__":
-    pytest.main()
+    pytest.main([__file__, "-v", "-s"])

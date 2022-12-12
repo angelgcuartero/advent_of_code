@@ -75,12 +75,9 @@ def get_node_by_name(file_system: dict, name: str) -> Node:
     return None
 
 
-def part_1(lines: list) -> int:
+def parse_file_system(lines) -> dict:
     file_system = {}
     current_dir_id = None
-    # file_system_name = {}
-    # current_dir_name = None
-    TOP_SIZE = 100000
 
     for line in lines:
         line = line.strip()
@@ -97,7 +94,7 @@ def part_1(lines: list) -> int:
                     file_system[node.id] = node
                     current_dir_id = node.id
                     continue
-                name_to_search = '###'.join([
+                name_to_search = '/'.join([
                     file_system[current_dir_id].name if
                     current_dir_id is not None else '',
                     parsed_dir]
@@ -110,7 +107,7 @@ def part_1(lines: list) -> int:
         elif line.startswith('dir'):
             # Directory
             parsed_dir = parse_dir_command(line)
-            name_to_set = '###'.join(
+            name_to_set = '/'.join(
                 [
                     file_system[current_dir_id].name,
                     parsed_dir
@@ -123,7 +120,7 @@ def part_1(lines: list) -> int:
             # File
             file_size, file_name = parse_file_command(line)
 
-            name_to_set = '###'.join(
+            name_to_set = '/'.join(
                 [
                     file_system[current_dir_id].name,
                     file_name
@@ -133,11 +130,41 @@ def part_1(lines: list) -> int:
             file_system[node.id] = node
             file_system[current_dir_id].children.append(node)
 
+    return file_system
+
+
+def get_minimal_dir(file_system: dict) -> Node:
+    TOTAL_DISK_SPACE = 70_000_000
+    REQUIRED_FREE_SPACE = 30_000_000
+
+    root_size = get_node_by_name(file_system, '/').get_size()
+
+    REQUIRED_TO_DELETE = TOTAL_DISK_SPACE - root_size - REQUIRED_FREE_SPACE
+
+    minimal_dir = None
+    for node in file_system.values():
+        if node.type == NT.DIR and node.get_size() > abs(REQUIRED_TO_DELETE):
+            if minimal_dir is None or node.get_size() < minimal_dir.get_size():
+                minimal_dir = node
+    return minimal_dir
+
+
+def part_1(lines: list) -> int:
+    TOP_SIZE = 100000
+
+    file_system = parse_file_system(lines)
     result = sum([x.get_size() if
                   x.type == NT.DIR and x.get_size() < TOP_SIZE else 0
                   for x in file_system.values()])
-
     return result
+
+
+def part_2(lines: list) -> int:
+    file_system = parse_file_system(lines)
+
+    node = get_minimal_dir(file_system)
+    print(node.name, node.get_size())
+    return node.get_size()
 
 
 def main() -> int:
@@ -145,7 +172,7 @@ def main() -> int:
     # Part One
     print(f"Part One: {part_1(lines)}")
     # Part Two
-    # print(f"Part Two: {part_2(lines)}")
+    print(f"Part Two: {part_2(lines)}")
     return 0
 
 
